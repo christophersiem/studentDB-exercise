@@ -4,7 +4,6 @@ import de.neuefische.model.Student;
 
 import java.util.Arrays;
 
-import static java.lang.Math.random;
 
 public class StudentDb {
 
