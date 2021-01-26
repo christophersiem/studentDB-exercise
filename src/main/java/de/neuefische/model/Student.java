@@ -8,14 +8,11 @@ public class Student {
     private int id;
 
 
-    // Constructor
-
     public Student(String firstName, int id) {
         this.firstName = firstName;
         this.id = id;
     }
 
-    // Public getter and setter methods to get access to attributes
 
     public String getFirstName() {
         return firstName;
