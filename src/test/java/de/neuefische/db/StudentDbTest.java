@@ -29,5 +29,72 @@ class StudentDbTest {
 
     }
 
+    @Test
+    void addShouldAddStudentToArray(){
+        //GIVEN
+        StudentDb studentDb = new StudentDb(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+        });
+
+        //WHEN
+        studentDb.add(new Student("Maria", 3));
+        Student[] actual =  studentDb.list();
+
+        //THEN
+        assertArrayEquals(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+                new Student("Maria", 3)
+        }, actual);
+    }
+
+    @Test
+    void removeShouldRemoveStudentFromArray(){
+        //GIVEN
+        StudentDb studentDb = new StudentDb(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+                new Student("Maria", 3)
+        });
+
+        //WHEN
+        studentDb.remove(3);
+        Student[] actual =  studentDb.list();
+
+        //THEN
+        assertArrayEquals(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+
+        }, actual);
+
+
+    }
+
+    @Test
+    void noStudentShouldBeRemovedWhenIdDoesNotExist(){
+        //GIVEN
+        StudentDb studentDb = new StudentDb(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+                new Student("Maria", 3)
+        });
+
+        //WHEN
+        studentDb.remove(4);
+        Student[] actual =  studentDb.list();
+
+        //THEN
+        assertArrayEquals(new Student[]{
+                new Student("Peter", 1),
+                new Student("Franziska", 2),
+                new Student("Maria", 3)
+
+        }, actual);
+
+
+    }
+
 
 }
